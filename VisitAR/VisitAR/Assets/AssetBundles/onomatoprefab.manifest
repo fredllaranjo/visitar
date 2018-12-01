@@ -1,0 +1,39 @@
+ManifestFileVersion: 0
+CRC: 3253637547
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c4410ec9e1b7e9e30f12baebc0ab5d74
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: e34b41d742e13df270d153e43d79c063
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: a590c37c0e98a9f4782961ef12a8529f, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/savedMesh/kapow.prefab
+- Assets/savedMesh/zam.prefab
+- Assets/savedMesh/boom.prefab
+- Assets/savedMesh/exception.prefab
+Dependencies: []

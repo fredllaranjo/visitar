@@ -1,0 +1,10 @@
+ManifestFileVersion: 0
+CRC: 3646481637
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: onomato
+      Dependencies: {}
+    Info_1:
+      Name: onomatoprefab
+      Dependencies: {}

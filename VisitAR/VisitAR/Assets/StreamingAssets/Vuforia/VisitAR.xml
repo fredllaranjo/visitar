@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="Marker3QR" size="17.000000 17.000000" />
+    <ImageTarget name="Marker2QR" size="17.000000 17.000000" />
+    <ImageTarget name="Marker1QR" size="17.000000 17.000000" />
+    <ImageTarget name="Marker1_24b" size="17.000000 17.000000" />
+    <ImageTarget name="pc_2_net" size="10.000000 6.036364" />
+    <ImageTarget name="pc_net" size="10.000000 7.490909" />
+    <ImageTarget name="p5_net" size="15.000000 8.437500" />
+    <ImageTarget name="PortaTraseiraPredioCentralMesas" size="5.000000 8.885496" />
+    <ImageTarget name="JardimLateralPredioCentralPlanta" size="5.000000 8.885496" />
+    <ImageTarget name="JardimLateralPredioCentral" size="8.000000 14.216794" />
+    <ImageTarget name="PortaTraseiraPredioCentralWeb" size="5.000000 8.885496" />
+  </Tracking>
+</QCARConfig>

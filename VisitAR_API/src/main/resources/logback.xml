@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+	<contextName>visitar_api-core</contextName>
+	<jmxConfigurator />
+
+	<!-- To verify if properties file exists -->
+	<define name="PROPERTIES_EXISTS"
+		class="ch.qos.logback.core.property.ResourceExistsPropertyDefiner">
+		<resource>log.properties</resource>
+	</define>
+
+	<!-- Log directory -->
+	<define name="LOG_DIR"
+		class="com.gmail.fredllaranjo.visitarapi.core.aop.logging.DefaultLogDirDefiner"></define>
+
+	<!-- Set properties file -->
+	<if condition='property("os.name").toLowerCase().contains("windows")'>
+		<then>
+			<property file="${user.dir}\data\log.properties" />
+		</then>
+		<else>
+			<if condition='property("os.name").toLowerCase().contains("mac")'>
+				<then>
+					<property file="${user.dir}/data/log.properties" />
+				</then>
+				<else>
+					<property file="/usr/bin/visitar_api/data/log.properties" />
+				</else>
+			</if>
+		</else>
+	</if>
+
+	<!-- Log to file, default "false" -->
+	<property name="LOG_TO_FILE" value="${LOG_IN_FILE:-false}" />
+
+	<!-- Set log level, default "debug" -->
+	<logger name="com.gmail.fredllaranjo.visitar.api" level="${LOG_LEVEL:-debug}" />
+
+	<!-- Appender for log in console -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>[%d] %-5level %logger{35} - %msg %n</pattern>
+		</encoder>
+	</appender>
+
+	<root level="info">
+		<appender-ref ref="STDOUT" />
+	</root>
+
+	<if condition='property("LOG_TO_FILE").equals("true")'>
+		<then>
+			<!-- Appender for log in file -->
+			<appender name="FILE"
+				class="ch.qos.logback.core.rolling.RollingFileAppender">
+				<file>${LOG_DIR:-logs}/visitar_api-core.log</file>
+				<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+					<!-- daily rollover -->
+					<fileNamePattern>${LOG_DIR:-logs}/srv-core.%d{yyyy-MM-dd}.%i.log
+					</fileNamePattern>
+					<timeBasedFileNamingAndTriggeringPolicy
+						class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+						<!-- or whenever the file size reaches the maximum, default 10MB -->
+						<maxFileSize>${MAX_LOG_FILE_SIZE:-10MB}</maxFileSize>
+					</timeBasedFileNamingAndTriggeringPolicy>
+					<!-- days in history, default 10 days -->
+					<maxHistory>${MAX_DAYS_HISTORY:-10}</maxHistory>
+				</rollingPolicy>
+
+				<encoder>
+					<pattern>[%d] %-5level %logger{35} - %msg %n</pattern>
+				</encoder>
+			</appender>
+
+			<root level="info">
+				<appender-ref ref="FILE" />
+			</root>
+
+		</then>
+	</if>
+
+</configuration>
